@@ -25,6 +25,7 @@ def bienvenue():
     print("3️/ Arrêt : Appuyez sur la touche ESC pour arrêter l’autoclicker à tout moment.")
     print("")
     print("Fonctionnel sur snapchat Web et sur émulateur (BlueStack...)")
+    print("Commandes : n pour mettre en pause\n echap pour quitter le programme\n r pour reprendre si programme en pause\nAPPUYEZ SUR LA TOUCHE p POUR LES COORDONNEES SI DEMANDEE")
 
 
 
@@ -82,6 +83,8 @@ def position():
 
 
 def autoclicker(delais):
+    running = True
+    paused = False
     positions = position()
     pos = 0
     print("Préparez vous, l'autoclicker va démarrer !")
@@ -89,15 +92,23 @@ def autoclicker(delais):
         print(i)
         time.sleep(1)
         
-    while True:
-        if not keyboard.is_pressed('esc'):
+    while running:
+        if keyboard.is_pressed("n"):
+            paused = True
+    
+        if not paused:
             pyautogui.click(positions[pos]['X'], positions[pos]['Y'])
             pos += 1
             if pos == len(positions):
                 pos = 0
             time.sleep(delais)
         else:
-            break
+            keyboard.wait("r")
+            paused = False 
+            print("Reprise du programme")
+            
+        if keyboard.is_pressed("esc"):
+            running = False
     
 def main():
     bienvenue()
