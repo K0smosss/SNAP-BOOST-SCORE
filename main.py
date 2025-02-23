@@ -117,9 +117,6 @@ def autoclicker(positions, delais=1):
                 paused = False
                 print("Reprise")
                 
-            if keyboard.is_pressed("esc"):
-                print("Autoclicker arrêté.")
-                break
     
 def main():
     bienvenue()
