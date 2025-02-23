@@ -6,4 +6,9 @@ Suffit juste de configurer les différentes coordonnées (coordonnées pour pris
 Ensuite il suffit juste de laisser l'autoclicker tourner
 
 ## Installation 
-git clone 
+```bash
+git clone https://github.com/K0smosss/SNAP-BOOST-SCORE.git
+cd SNAP-BOOST-SCORE
+pip install -r requirements.txt
+python main.py
+```
